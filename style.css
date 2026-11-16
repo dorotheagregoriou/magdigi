@@ -1,0 +1,1943 @@
+/* =========================================================
+   01. GLOBAL RESET & CORE PAGE DEFAULTS
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* overflow-x: clip prevents horizontal scroll WITHOUT breaking position: sticky */
+html,
+body {
+    background-color: #050505;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   02. SHARED COMPONENTS & REUSABLE CLASSES (DRY)
+   ========================================================= */
+
+/* Base Typography for all Bebas Neue Headings */
+.title {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 0.95;
+}
+
+/* Universal Color Modifiers for Headings */
+.title-yellow {
+    color: #D4FF24;
+}
+
+.title-white {
+    color: #ffffff;
+}
+
+/* Universal Section Subtitles/Eyebrows */
+.subtitle {
+    font-family: 'DM Sans', sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Universal Layout Wrappers (Main Container & Full Sections) */
+.container,
+.our-work-inner {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Universal Rounded Card Containers */
+.card-box,
+.hero-card,
+.offer-card,
+.grid-card,
+.project-image-wrapper {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.card-box,
+.hero-card,
+.offer-card {
+    width: 100%;
+    padding: 35px 45px;
+}
+
+/* Universal Background Images */
+.bg-img,
+.hero-bg-img,
+.grid-card-bg,
+.project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Universal Action Buttons (Start Project, View Projects & View Service) */
+.btn-primary,
+.btn-start,
+.btn-view-projects {
+    text-decoration: none;
+    background-color: #D4FF24;
+    color: #1558C9;
+    padding: 1vw 1.8vw;
+    border-radius: 4vw;
+    font-size: 1.15vw;
+    font-weight: 700;
+    letter-spacing: 0.05vw;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover,
+.btn-start:hover,
+.btn-view-projects:hover {
+    transform: scale(1.04);
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   03. TOP NAVIGATION BAR (HEADER)
+   ========================================================= */
+.navbar {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background-color: #050505;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo-container a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logo {
+    height: 8vw;
+    display: block;
+}
+
+.center-nav {
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+
+/* Regular state for nav links */
+.nav-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #D4FF24;
+    font-size: 1.15vw;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+/* Prevents layout shift on bold hover or active state */
+.nav-item::after {
+    display: block;
+    content: attr(data-text);
+    height: 0;
+    visibility: hidden;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+/* Active page & hover state for navigation */
+.nav-item:hover,
+.nav-item.active {
+    color: #1558C9;
+    font-weight: 700;
+}
+
+.right-icons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.25vw;
+}
+
+.nav-icon {
+    height: 2vw;
+    display: block;
+    transition: 0.3s;
+}
+
+.icon-link:hover .nav-icon {
+    opacity: 0.6;
+}
+
+.btn-start {
+    margin-left: 0.8vw;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+/* =========================================================
+   04. HERO SECTION (TOP BANNER CARD)
+   ========================================================= */
+.hero-card {
+    height: 370px;
+}
+
+.hero-text-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-title {
+    font-size: 110px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    opacity: 0.9;
+    margin-bottom: -10px;
+}
+
+/* Hero Diagonal Arrow Link & Hover Zoom */
+.arrow-link,
+.hero-arrow-link,
+.offer-arrow-link,
+.grid-card-arrow {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.hero-arrow-link {
+    bottom: 20px;
+    right: 30px;
+}
+
+.arrow-icon-img,
+.grid-arrow-img {
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.hero-arrow-link .arrow-icon-img {
+    width: 100px;
+}
+
+.hero-arrow-link:hover .arrow-icon-img,
+.offer-arrow-link:hover .arrow-icon-img {
+    opacity: 0.7;
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   05. "WHAT WE OFFER" CAROUSEL SECTION
+   ========================================================= */
+.offer-card {
+    height: 270px;
+    background-color: #1558C9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offer-title,
+.grid-card-title,
+.our-work-title,
+.what-we-do-title,
+.folder-number,
+.folder-title {
+    font-size: 80px;
+}
+
+.offer-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.offer-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.slide-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.target-icon {
+    width: 65px;
+    height: 65px;
+    display: block;
+}
+
+.slide-title-main {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 70px;
+    color: #D4FF24;
+    line-height: 0.9;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.slide-title-sub {
+    font-size: 35px;
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-weight: 400;
+}
+
+.slide-description {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0.95;
+    max-width: 600px;
+}
+
+/* Carousel Pagination Dots */
+.pagination-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #D4FF24;
+    width: 16px;
+    border-radius: 8px;
+}
+
+.offer-arrow-link {
+    bottom: 40px;
+    right: 45px;
+}
+
+.offer-arrow-link .arrow-icon-img {
+    width: 50px;
+}
+
+
+/* =========================================================
+   06. THREE-COLUMN CARDS GRID
+   ========================================================= */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    margin: 35px auto 0 auto;
+}
+
+.grid-card {
+    height: 370px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.grid-card-content {
+    position: relative;
+    z-index: 3;
+}
+
+.grid-card-subtitle {
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+.grid-card-arrow {
+    bottom: 25px;
+    right: 25px;
+}
+
+.grid-arrow-img {
+    width: 40px;
+}
+
+/* Grid Card Arrow Expand & Opacity Hover / Press Effect */
+.grid-card-arrow:hover .grid-arrow-img,
+.grid-card-arrow:active .grid-arrow-img {
+    opacity: 0.7;
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   07. "OUR WORK" FULL-BLEED SECTION
+   ========================================================= */
+.our-work-section {
+    background-color: #1558C9;
+    width: 100vw;
+    padding: 50px 0 45px 0;
+    margin-top: 40px;
+}
+
+.our-work-inner {
+    gap: 45px;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.project-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-image-wrapper {
+    flex: 1.2;
+    height: 400px;
+}
+
+.project-img {
+    display: block;
+    transform: scale(1.03);
+}
+
+.project-info {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-info.align-right {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.project-name {
+    font-size: 44px;
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-tags.right-align {
+    justify-content: flex-end;
+}
+
+.tag {
+    background-color: #050505;
+    font-size: 12px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 400;
+}
+
+.tag-circle {
+    padding: 8px 12px;
+}
+
+.case-study-link {
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    font-weight: 400;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.case-study-link:hover {
+    opacity: 0.7;
+}
+
+.view-all-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   08. "WHAT WE DO BEST" VERTICAL SCROLL TIMELINE SECTION
+   ========================================================= */
+.what-we-do-section {
+    max-width: 1350px;
+    margin: 60px auto 0 auto;
+    padding: 0 40px;
+}
+
+.what-we-do-header {
+    margin-bottom: 55px;
+}
+
+.what-we-do-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    align-items: start;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+    padding-right: 40px;
+}
+
+.timeline-tracker {
+    position: sticky;
+    top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+.timeline-tracker::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    bottom: 20px;
+    width: 2px;
+    background-color: rgba(212, 255, 36, 0.3);
+    z-index: 1;
+}
+
+/* Timeline dots are clickable to scroll to services */
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    background-color: #050505;
+    border: 3px solid rgba(212, 255, 36, 0.5);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-dot:hover {
+    border-color: #D4FF24;
+    transform: scale(1.15);
+}
+
+.timeline-dot.active {
+    background-color: #1558C9;
+    border-color: #1558C9;
+    transform: scale(1.3);
+    box-shadow: 0 0 12px rgba(21, 88, 201, 0.8);
+}
+
+.scrollable-services-box {
+    background-color: #111111;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 650px;
+    overflow-y: auto;
+    padding: 60px 80px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    scrollbar-width: thin;
+    scrollbar-color: #D4FF24 rgba(255, 255, 255, 0.05);
+}
+
+.scrollable-services-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-services-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollable-services-box::-webkit-scrollbar-thumb {
+    background-color: #D4FF24;
+    border-radius: 10px;
+}
+
+.service-scroll-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 70px;
+}
+
+.service-scroll-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+
+/* =========================================================
+   09. WEBSITE FOOTER SECTION & CHALLENGE CTA BANNER
+   ========================================================= */
+
+.challenge-cta-card {
+    background-color: #1558C9;
+    width: 100vw;
+    max-width: 100%;
+    padding: 80px 80px 160px 80px;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    z-index: 30;
+}
+
+.challenge-title {
+    font-size: 80px;
+    line-height: 0.95;
+    color: #ffffff;
+}
+
+.site-footer {
+    background-color: #000000;
+    border-top-left-radius: 120px;
+    border-top-right-radius: 120px;
+    padding: 45px 10% 40px 10%;
+    margin-top: -110px;
+    position: relative;
+    z-index: 31;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.col-heading {
+    font-family: 'DM Sans', sans-serif !important;
+    color: #D4FF24;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.sub-section {
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 6px;
+}
+
+.footer-links a,
+.contact-email a {
+    font-family: 'DM Sans', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.contact-email a:hover {
+    color: #1558C9;
+}
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons .icon-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+/* Matches the rectangular mail icon's visual height and #D4FF24 brightness to Instagram */
+.social-img[src*="mail"] {
+    width: 35px;
+    height: 35px;
+    filter: contrast(2) ;
+}
+
+
+/* =========================================================
+   10. SERVICES PAGE (PHYSICAL FOLDER STACK)
+   ========================================================= */
+:root {
+    --tab-height: 28px;
+}
+
+/* Position navbar cleanly over the full-height intro on the services page */
+.services-page .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+}
+
+.services-intro {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.services-intro-title {
+    position: relative;
+    font-size: clamp(48px, 8vw, 96px);
+    text-align: center;
+}
+
+.services-intro-title::after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 28%;
+    width: 45%;
+    height: 4px;
+    background-color: #D4FF24;
+    border-radius: 2px;
+}
+
+.services {
+    position: relative;
+    overflow: visible;
+    padding: 0;
+    margin-top: 0;
+    z-index: 20;
+}
+
+.services+.challenge-cta-card {
+    margin-top: 0;
+}
+
+.services .folder {
+    position: sticky;
+    top: calc(var(--stack-index) * var(--tab-height));
+    height: calc(100svh - var(--stack-index) * var(--tab-height));
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #111111;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+    scroll-margin-top: calc(var(--stack-index) * var(--tab-height));
+}
+
+/* Readable folder tab lip left behind as the next folder covers it */
+.services .folder-lip {
+    flex: 0 0 var(--tab-height);
+    height: var(--tab-height);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 clamp(20px, 4.2vw, 70px);
+    background-color: #151d2a;
+    border-radius: 24px 24px 0 0;
+    color: #D4FF24;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.services .folder-lip:hover {
+    background-color: #1e2d47;
+}
+
+.services .lip-number {
+    color: #ffffff;
+}
+
+.services .lip-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Active folder header placed directly above the Greek text */
+.services .folder-header {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 4px;
+}
+
+.services .folder-number {
+    flex: none;
+}
+
+/* Folder two-column body: title + description + CTA on left, large icon on right */
+.services .folder-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(24px, 5vw, 70px);
+    padding: clamp(20px, 3vh, 40px) clamp(20px, 4.2vw, 70px);
+}
+
+.services .service-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    max-width: 580px;
+}
+
+.services .service-text .btn-primary {
+    margin-top: 10px;
+}
+
+.services .folder-service-img {
+    width: 100%;
+    max-width: 560px;
+    max-height: min(62svh, 540px);
+    height: auto;
+    object-fit: contain;
+    justify-self: center;
+}
+
+/* Responsive adjustments for Services folder stack */
+@media (max-width: 900px) {
+    :root {
+        --tab-height: 24px;
+    }
+
+    .services .folder-lip {
+        font-size: 16px;
+        gap: 8px;
+        padding: 0 20px;
+    }
+
+    .services .folder-number,
+    .services .folder-title {
+        font-size: 56px;
+    }
+
+    .services .folder-content {
+        grid-template-columns: 1fr;
+        align-content: center;
+        padding: 20px;
+        gap: 24px;
+    }
+
+    .services .folder-service-img {
+        max-width: 340px;
+        max-height: 28svh;
+    }
+}
+
+@media (max-width: 560px) {
+    :root {
+        --tab-height: 20px;
+    }
+
+    .services .folder-lip {
+        font-size: 13px;
+    }
+
+    .services .folder-number,
+    .services .folder-title {
+        font-size: 40px;
+    }
+
+    .services .service-text {
+        gap: 14px;
+    }
+
+    .services .folder-service-img {
+        max-width: 220px;
+        max-height: 20svh;
+    }
+}
+
+
+/* =========================================================
+   11. ABOUT US PAGE
+   ========================================================= */
+
+/* About Hero (Side-by-Side Intro) */
+.about-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 80px 8%;
+    gap: 60px;
+}
+
+.lime-line {
+    width: 140px;
+    height: 6px;
+    background-color: #D4FF24;
+    margin-top: 15px;
+}
+
+/* Smooth Sliding Photo Carousel */
+.photos {
+    width: 100%;
+    margin: 30px 0 80px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-stage {
+    position: relative;
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 54vw;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    will-change: transform, opacity;
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.85s ease;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-card.pos-center {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 3;
+    filter: brightness(1);
+}
+
+.photo-card.pos-left {
+    transform: translate(calc(-50% - 45vw), -50%) scale(0.8);
+    opacity: 0.65;
+    z-index: 2;
+    filter: brightness(0.85);
+}
+
+.photo-card.pos-right {
+    transform: translate(calc(-50% + 45vw), -50%) scale(0.8);
+    opacity: 0.65;
+    z-index: 2;
+    filter: brightness(0.85);
+}
+
+.photo-card.pos-left:hover,
+.photo-card.pos-right:hover {
+    opacity: 0.9;
+    filter: brightness(1);
+}
+
+.photos .pagination-dots {
+    margin-top: 28px;
+}
+
+/* Edge-to-Edge Full Viewport Width BIIIIG Slogan & Statement Overlay */
+.statement-container {
+    width: 100vw;
+    max-width: 100%;
+    padding: 80px 0 110px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slogan-wrapper {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.biiig-slogan {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 35.8vw;
+    font-weight: 400;
+    line-height: 0.78;
+    letter-spacing: 0;
+    color: #363636;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+    display: block;
+    width: 100vw;
+    text-align: center;
+}
+
+.slogan-overlay-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: clamp(32px, 4.3vw, 64px);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.slogan-subtitle {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 8px;
+    padding: 0 6%;
+}
+
+/* Services Pyramid (Expanding Pills) */
+.about-services {
+    padding: 100px 8% 120px;
+}
+
+.about-services .what-we-do-title {
+    margin-bottom: 60px;
+}
+
+.pyramid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.icon-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 36px;
+    height: 140px;
+    position: relative;
+}
+
+.service-pill {
+    width: 136px;
+    height: 136px;
+    border-radius: 70px;
+    background-color: #ffffff;
+    border: 6px solid #1558C9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 14px 12px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.service-pill:hover {
+    height: 330px;
+    z-index: 20;
+    box-shadow: 0 20px 45px rgba(21, 88, 201, 0.45);
+}
+
+.pill-content {
+    opacity: 0;
+    max-height: 0;
+    text-align: center;
+    color: #050505;
+    transition: opacity 0.25s ease 0.1s, max-height 0.35s ease;
+    margin-bottom: auto;
+    padding-top: 12px;
+}
+
+.service-pill:hover .pill-content {
+    opacity: 1;
+    max-height: 200px;
+}
+
+.pill-content h3 {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 22px;
+    letter-spacing: 0.03em;
+    color: #1558C9;
+    margin-bottom: 18px;
+    line-height: 1.05;
+}
+
+.pill-content p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 13px;
+    line-height: 1.35;
+    color: #111111;
+}
+
+/* Bottom Icon Anchor (Brand Blue #1558C9 at rest, White on hover) */
+.pill-icon-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #1558C9;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pill-icon-wrap .target-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.pill-icon-wrap img.target-icon {
+    filter: brightness(0) saturate(100%) invert(23%) sepia(91%) saturate(2893%) hue-rotate(213deg) brightness(88%) contrast(94%);
+    transition: filter 0.3s ease;
+}
+
+.service-pill:hover .pill-icon-wrap {
+    background-color: #1558C9;
+    color: #ffffff;
+}
+
+.service-pill:hover .pill-icon-wrap img.target-icon {
+    filter: brightness(0) invert(1);
+}
+
+
+/* =========================================================
+   12. OUR WORK / CASE STUDIES PAGE
+   ========================================================= */
+
+/* First-screen centered title */
+.work-hero {
+    min-height: calc(100vh - 8vw - 24px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.work-hero .our-work-title {
+    font-size: clamp(48px, 8vw, 96px);
+}
+
+.work-subtitle {
+    display: inline-block;
+    margin-top: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ffffff;
+}
+
+/* Folder stage & horizontal single-row filter bar */
+.work {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 70px;
+}
+
+.work input {
+    display: none;
+}
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    height: 38px;
+    margin-top: -28px;
+    margin-bottom: 48px;
+    overflow: hidden;
+}
+
+.filter-toggle {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    background-color: #111111;
+    border: 1px solid rgba(212, 255, 36, 0.35);
+    border-radius: 30px;
+    padding: 0 16px;
+    color: #D4FF24;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.filter-toggle:hover,
+.filter-bar.open .filter-toggle {
+    background-color: rgba(212, 255, 36, 0.12);
+    border-color: #D4FF24;
+}
+
+.filter-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.filter-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    height: 38px;
+    max-width: 0;
+    opacity: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    pointer-events: none;
+    transform: translateX(-12px);
+    transition: max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.3s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.filter-options::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-bar.open .filter-options {
+    max-width: 1120px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* Reuses .tag pill shape in a single horizontal row */
+.tag.filter-pill {
+    flex-shrink: 0;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.tag.filter-pill:hover {
+    border-color: #D4FF24;
+    color: #D4FF24;
+}
+
+.tag.filter-pill.active {
+    background-color: #D4FF24;
+    color: #050505;
+    border-color: #D4FF24;
+    font-weight: 700;
+}
+
+.folders-stage {
+    position: relative;
+    height: 780px;
+}
+
+/* Each .folder is one unified physical file (tab + back + paper + front move together) */
+.work .folder {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: hidden;
+    transition: top 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.2s ease;
+}
+
+.work .folder.lime {
+    --back: #b8dc0c;
+    --front: #D4FF24;
+    --tab-color: #050505;
+}
+
+.work .folder.blue {
+    --back: #0b4cc4;
+    --front: #1558C9;
+    --tab-color: #ffffff;
+}
+
+.work .folder.green {
+    --back: #52e02a;
+    --front: #52e02a;
+    --tab-color: #050505;
+}
+
+/* Depth & vertical stacking order when each file is selected */
+#tab1:checked~.folders-stage #f1,
+#tab2:checked~.folders-stage #f2,
+#tab3:checked~.folders-stage #f3 {
+    top: 44px;
+    z-index: 3;
+}
+
+#tab1:checked~.folders-stage #f2,
+#tab2:checked~.folders-stage #f1,
+#tab3:checked~.folders-stage #f2 {
+    top: 22px;
+    z-index: 2;
+}
+
+#tab1:checked~.folders-stage #f3,
+#tab2:checked~.folders-stage #f3,
+#tab3:checked~.folders-stage #f1 {
+    top: 0px;
+    z-index: 1;
+}
+
+/* Hover highlight on background files */
+#tab1:checked~.folders-stage #f2:hover,
+#tab1:checked~.folders-stage #f3:hover,
+#tab2:checked~.folders-stage #f1:hover,
+#tab2:checked~.folders-stage #f3:hover,
+#tab3:checked~.folders-stage #f1:hover,
+#tab3:checked~.folders-stage #f2:hover {
+    filter: brightness(1.1);
+}
+
+/* Top title tab attached directly to its own folder (excluded from paper hover trigger) */
+.folder-tab {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0 46px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--back);
+    color: var(--tab-color);
+    clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+}
+
+.work .folder.lime .folder-tab {
+    left: 40px;
+}
+
+.work .folder.blue .folder-tab {
+    left: 365px;
+}
+
+.work .folder.green .folder-tab {
+    right: 70px;
+}
+
+/* Stationary hover zone for the file body so hover never flickers during animation */
+.folder-body {
+    position: absolute;
+    top: 46px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Colored back cover connected seamlessly below the tab */
+.folder-back {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: var(--back);
+    cursor: pointer;
+}
+
+/* GPU-accelerated sliding white paper inside the active folder */
+.paper {
+    position: absolute;
+    z-index: 2;
+    top: -36px;
+    left: 25px;
+    right: 32px;
+    height: 480px;
+    background: #ffffff;
+    color: #050505;
+    transform: translateY(420px);
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#tab1:checked~.folders-stage #f1 .folder-body:hover .paper,
+#tab2:checked~.folders-stage #f2 .folder-body:hover .paper,
+#tab3:checked~.folders-stage #f3 .folder-body:hover .paper {
+    transform: translateY(55px);
+}
+
+.paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 12%;
+    width: 1px;
+    background: #1558C9;
+}
+
+.paper-content {
+    padding: 36px 40px 0 17%;
+}
+
+.paper-content .subtitle:not(.blue-text) {
+    color: #050505;
+    margin-top: 6px;
+}
+
+.blue-text {
+    color: #1558C9;
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+/* Reuses .tag shape and overrides colors for the white paper */
+.work .pills .tag {
+    background-color: #1558C9;
+    color: #D4FF24;
+    padding: 10px 24px;
+}
+
+/* GPU-accelerated front folder flap */
+.front {
+    position: absolute;
+    z-index: 3;
+    top: 34px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--front);
+    color: #050505;
+    padding: 30px 45px;
+    transform: translateY(0);
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#tab1:checked~.folders-stage #f1 .folder-body:hover .front,
+#tab2:checked~.folders-stage #f2 .folder-body:hover .front,
+#tab3:checked~.folders-stage #f3 .folder-body:hover .front {
+    transform: translateY(275px);
+}
+
+.work .folder.blue .front {
+    color: #ffffff;
+}
+
+.front-text {
+    display: inline-block;
+    color: inherit;
+    border-top: 3px solid currentColor;
+    padding-top: 10px;
+}
+
+@media (max-width: 1100px) {
+    .work {
+        padding: 0 24px;
+    }
+
+    .folder-tab {
+        padding: 0 22px;
+        font-size: 13px;
+    }
+
+    .work .folder.lime .folder-tab {
+        left: 2%;
+    }
+
+    .work .folder.blue .folder-tab {
+        left: 35%;
+    }
+
+    .work .folder.green .folder-tab {
+        right: 2%;
+    }
+}
+
+/* =========================================================
+   13. CASE STUDY DETAIL PAGE
+   ========================================================= */
+
+.cs-detail-hero {
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 60px 70px 45px;
+}
+
+.cs-detail-hero .lime-line {
+    margin: 12px 0 14px;
+}
+
+.cs-detail-hero .subtitle {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+/* Full-left-bleed wrapper leaving space on the right for the protruding tabs */
+.cs-detail-work {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 110px 40px 0;
+}
+
+/* Outer lime folder frame extending to the left edge */
+.cs-folder-frame {
+    position: relative;
+    background-color: #b8dc0c;
+    padding: 40px 44px 56px max(40px, calc(50vw - 605px));
+}
+
+/* Protruding upper-right lime tab holding the chevron arrow */
+.cs-lime-tab {
+    position: absolute;
+    top: 0;
+    right: -52px;
+    width: 52px;
+    height: 340px;
+    background-color: #b8dc0c;
+    clip-path: polygon(0 0, 100% 6%, 100% 94%, 0 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 38px;
+    color: #1558C9;
+    text-decoration: none;
+    z-index: 6;
+    transition: color 0.25s ease, filter 0.25s ease;
+}
+
+.cs-lime-tab:hover {
+    color: #ffffff;
+    filter: brightness(1.05);
+}
+
+.cs-lime-tab svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.25s ease;
+}
+
+.cs-lime-tab:hover svg {
+    transform: translateX(-3px);
+}
+
+/* Vertical folder tabs on the right edge below the lime tab */
+.cs-side-tabs {
+    position: absolute;
+    top: 356px;
+    right: -52px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 5;
+}
+
+.cs-side-tab {
+    width: 52px;
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 0;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    clip-path: polygon(0 0, 100% 6%, 100% 94%, 0 100%);
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.cs-side-tab:hover {
+    transform: translateX(4px);
+    filter: brightness(1.08);
+}
+
+.cs-side-tab--blue {
+    background-color: #1558C9;
+    color: #ffffff;
+}
+
+.cs-side-tab--green {
+    background-color: #52e02a;
+    color: #050505;
+}
+
+/* White paper sheet inside the folder */
+.cs-sheet {
+    position: relative;
+    max-width: 1180px;
+    background-color: #ffffff;
+    color: #050505;
+    padding: 50px 60px 68px 15%;
+}
+
+/* Vertical blue margin line matching .paper::before */
+.cs-sheet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10.5%;
+    width: 1px;
+    background-color: #1558C9;
+}
+
+/* Binder holes on the left margin */
+.cs-hole {
+    position: absolute;
+    left: 4.2%;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #D4FF24;
+    box-shadow: inset 0 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cs-hole-1 { top: 50px; }
+.cs-hole-2 { top: 140px; }
+.cs-hole-3 { bottom: 140px; }
+.cs-hole-4 { bottom: 50px; }
+
+.cs-year {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.cs-dark-title {
+    color: #171717;
+    font-size: clamp(46px, 5vw, 76px);
+    margin-bottom: 8px;
+}
+
+.cs-dark-subtitle {
+    color: #050505;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* Reuses homepage .project-tags & .tag sizing, only changing colors */
+.cs-detail-work .project-tags {
+    margin-top: 22px;
+}
+
+.cs-detail-work .project-tags .tag {
+    background-color: #1558C9;
+    color: #D4FF24;
+}
+
+.cs-featured-img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    margin: 30px 0 44px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+.cs-heading {
+    font-size: 26px;
+    font-weight: 700;
+    color: #062c6c;
+    margin: 40px 0 14px;
+}
+
+.cs-dark-body {
+    color: #050505;
+    max-width: 100%;
+}
+
+.cs-client-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #050505;
+    margin: 22px 0 6px;
+}
+
+.cs-sub-block {
+    margin-top: 18px;
+}
+
+.cs-sub-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: #050505;
+    margin-bottom: 6px;
+}
+
+/* Numbered Deliverables */
+.cs-deliverable {
+    margin: 20px 0 20px 20px;
+}
+
+.cs-deliverable-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.cs-deliverable-num {
+    font-size: 20px;
+    font-weight: 700;
+    color: #171717;
+}
+
+.cs-deliverable-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #050505;
+}
+
+.cs-deliverable .slide-description {
+    padding-left: 36px;
+}
+
+.cs-deliverables-note {
+    margin-top: 22px;
+}
+
+/* CSS Radio Gallery matching site-wide .pagination-dots & .dot in blue */
+.cs-gallery {
+    max-width: 780px;
+    margin: 34px auto 38px;
+}
+
+.cs-gallery input[type="radio"] {
+    display: none;
+}
+
+.cs-gallery-slides {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+}
+
+.cs-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#gallery-1:checked ~ .cs-gallery-slides .cs-slide-1,
+#gallery-2:checked ~ .cs-gallery-slides .cs-slide-2 {
+    opacity: 1;
+}
+
+.cs-gallery-dots {
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.cs-gallery-dots .dot {
+    background-color: rgba(21, 88, 201, 0.35);
+}
+
+#gallery-1:checked ~ .cs-gallery-dots .dot-1,
+#gallery-2:checked ~ .cs-gallery-dots .dot-2 {
+    background-color: #1558C9;
+    width: 16px;
+    border-radius: 8px;
+}
+
+/* External Links */
+.cs-external-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.cs-external-links a {
+    color: #1558C9;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    width: fit-content;
+    transition: opacity 0.25s ease;
+}
+
+.cs-external-links a:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 1100px) {
+    .cs-detail-hero {
+        padding: 40px 24px 30px;
+    }
+
+    .cs-detail-work {
+        padding: 0 24px 32px;
+    }
+
+    .cs-folder-frame {
+        padding: 24px 20px 28px;
+    }
+
+    .cs-lime-tab {
+        position: static;
+        width: 100%;
+        height: 44px;
+        clip-path: none;
+        border-radius: 12px;
+        padding: 0 18px;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .cs-side-tabs {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .cs-side-tab {
+        width: auto;
+        writing-mode: horizontal-tb;
+        clip-path: none;
+        border-radius: 12px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .cs-sheet {
+        padding: 36px 24px 40px;
+    }
+
+    .cs-sheet::before,
+    .cs-hole {
+        display: none;
+    }
+
+    .cs-featured-img,
+    .cs-gallery-slides {
+        height: 260px;
+    }
+}

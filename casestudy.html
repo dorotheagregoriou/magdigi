@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work | Magnify</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Didact+Gothic&display=block" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ TOP NAVIGATION BAR ============ -->
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Company Logo" class="logo">
+      </a>
+    </div>
+
+    <nav class="center-nav">
+      <a href="index.html" class="nav-item" data-text="HOME">HOME</a>
+      <a href="services.html" class="nav-item" data-text="SERVICES">SERVICES</a>
+      <a href="casestudy.html" class="nav-item active" data-text="OUR WORK">OUR WORK</a>
+      <a href="aboutus.html" class="nav-item" data-text="ABOUT US">ABOUT US</a>
+      <a href="#contact" class="btn-start">START A PROJECT</a>
+    </nav>
+
+    <div class="right-icons">
+      <a href="javascript:void(0);" class="icon-link"><img src="images/language.png" alt="Language" class="nav-icon"></a>
+      <a href="javascript:void(0);" class="icon-link"><img src="images/search.png" alt="Search" class="nav-icon"></a>
+      <a href="javascript:void(0);" class="icon-link"><img src="images/account.png" alt="Account" class="nav-icon"></a>
+    </div>
+  </header>
+
+  <!-- ============ OUR WORK HERO ============ -->
+  <section class="work-hero">
+    <h1 class="title title-yellow our-work-title">OUR WORK</h1>
+    <p class="subtitle work-subtitle">Case Studies</p>
+  </section>
+
+  <!-- ============ CASE STUDIES FOLDERS ============ -->
+  <main class="work" id="folders">
+
+    <input type="radio" name="project" id="tab1" checked>
+    <input type="radio" name="project" id="tab2">
+    <input type="radio" name="project" id="tab3">
+
+    <div class="filter-bar" id="filterBar">
+      <button type="button" class="filter-toggle" id="filterToggle" aria-expanded="false">
+        <svg class="filter-icon" viewBox="0 0 30 30" fill="none" stroke="#D4FF24" stroke-width="3" stroke-linecap="round">
+          <line x1="3" y1="7" x2="27" y2="7"/>
+          <line x1="3" y1="15" x2="27" y2="15"/>
+          <line x1="3" y1="23" x2="27" y2="23"/>
+          <circle cx="9" cy="7" r="3" fill="#D4FF24"/>
+          <circle cx="20" cy="15" r="3" fill="#D4FF24"/>
+          <circle cx="12" cy="23" r="3" fill="#D4FF24"/>
+        </svg>
+        <span>Filter</span>
+      </button>
+
+      <div class="filter-options" id="filterOptions">
+        <button type="button" class="tag filter-pill active">All</button>
+        <button type="button" class="tag filter-pill">Digital Strategy</button>
+        <button type="button" class="tag filter-pill">Social Media</button>
+        <button type="button" class="tag filter-pill">Content &amp; Video</button>
+        <button type="button" class="tag filter-pill">Web Design</button>
+        <button type="button" class="tag filter-pill">Google Ads</button>
+        <button type="button" class="tag filter-pill">Meta Ads</button>
+        <button type="button" class="tag filter-pill">TikTok Ads</button>
+        <button type="button" class="tag filter-pill">Branding</button>
+      </div>
+    </div>
+
+    <div class="folders-stage">
+
+      <!-- FOLDER 1 -->
+      <section class="folder lime" id="f1">
+        <label for="tab1" class="folder-tab">The Outdoor Adventure Show</label>
+        <div class="folder-body">
+          <label for="tab1" class="folder-back" aria-label="The Outdoor Adventure Show"></label>
+          <a href="casestudydetails.html" class="paper">
+            <div class="paper-content">
+              <p class="subtitle blue-text">2026</p>
+              <h2 class="title our-work-title">The Outdoor Adventure Show</h2>
+              <p class="subtitle">Digital Strategy &amp; Event Promotion</p>
+              <div class="pills">
+                <span class="tag">Digital Strategy</span>
+                <span class="tag">Event Promotion</span>
+                <span class="tag">Content Planning</span>
+                <span class="tag">Visual Design &amp; Copywriting</span>
+              </div>
+            </div>
+          </a>
+          <div class="front">
+            <p class="subtitle front-text">Digital Strategy<br>&amp; Event Promotion</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOLDER 2 -->
+      <section class="folder blue" id="f2">
+        <label for="tab2" class="folder-tab">Stage One Dance Studio</label>
+        <div class="folder-body">
+          <label for="tab2" class="folder-back" aria-label="Stage One Dance Studio"></label>
+          <div class="paper">
+            <div class="paper-content">
+              <p class="subtitle blue-text">2026</p>
+              <h2 class="title our-work-title">Stage One Dance Studio</h2>
+              <p class="subtitle">Social Media &amp; Branding</p>
+              <div class="pills">
+                <span class="tag">Social Media</span>
+                <span class="tag">Branding</span>
+              </div>
+            </div>
+          </div>
+          <div class="front">
+            <p class="subtitle front-text">Social Media<br>&amp; Branding</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOLDER 3 -->
+      <section class="folder green" id="f3">
+        <label for="tab3" class="folder-tab">Global Trading Contest</label>
+        <div class="folder-body">
+          <label for="tab3" class="folder-back" aria-label="Global Trading Contest"></label>
+          <div class="paper">
+            <div class="paper-content">
+              <p class="subtitle blue-text">2026</p>
+              <h2 class="title our-work-title">Global Trading Contest</h2>
+              <p class="subtitle">Meta Ads &amp; Content</p>
+              <div class="pills">
+                <span class="tag">Meta Ads</span>
+                <span class="tag">Content</span>
+              </div>
+            </div>
+          </div>
+          <div class="front">
+            <p class="subtitle front-text">Meta Ads<br>&amp; Content</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ============ CHALLENGE CTA BANNER ============ -->
+  <section class="challenge-cta-card" id="contact">
+    <h2 class="title title-white challenge-title">
+      HAVE A CHALLENGE?<br>
+      LETS TURN IT<br>
+      INTO GROWTH.
+    </h2>
+    <a href="javascript:void(0);" class="btn-start">START A PROJECT</a>
+  </section>
+
+  <!-- ============ WEBSITE FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <!-- Column 1: Services -->
+      <div class="footer-col">
+        <h3 class="col-heading">SERVICES</h3>
+        <ul class="footer-links">
+          <li><a href="javascript:void(0);">Digital Strategy</a></li>
+          <li><a href="javascript:void(0);">Social Media Management</a></li>
+          <li><a href="javascript:void(0);">Content Creation &amp; Video Production</a></li>
+          <li><a href="javascript:void(0);">Website Design &amp; Development</a></li>
+          <li><a href="javascript:void(0);">Google Ads</a></li>
+          <li><a href="javascript:void(0);">Meta Ads</a></li>
+          <li><a href="javascript:void(0);">TikTok Ads</a></li>
+          <li><a href="javascript:void(0);">Branding</a></li>
+          <li><a href="services.html">All Services</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Our Work & About Us -->
+      <div class="footer-col">
+        <div class="sub-section">
+          <h3 class="col-heading">OUR WORK</h3>
+          <ul class="footer-links">
+            <li><a href="casestudy.html">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3 class="col-heading">ABOUT US</h3>
+          <ul class="footer-links">
+            <li><a href="aboutus.html">Team</a></li>
+            <li><a href="javascript:void(0);">How We Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Column 3: Contact & Socials -->
+      <div class="footer-col">
+        <h3 class="col-heading">CONTACT</h3>
+        <p class="contact-email">
+          <a href="mailto:magdigi@gmail.com">magdigi@gmail.com</a>
+        </p>
+
+        <div class="social-icons">
+          <a href="javascript:void(0);" class="icon-link" aria-label="Instagram">
+            <img src="images/instagram.png" alt="Instagram" class="social-img">
+          </a>
+
+          <a href="mailto:magdigi@gmail.com" class="icon-link" aria-label="Email">
+            <img src="images/mail.png" alt="Email" class="social-img">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const filterBar = document.getElementById('filterBar');
+    const filterToggle = document.getElementById('filterToggle');
+    const filterPills = document.querySelectorAll('.filter-pill');
+
+    filterToggle.addEventListener('click', () => {
+      const isOpen = filterBar.classList.toggle('open');
+      filterToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    filterPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

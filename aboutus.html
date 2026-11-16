@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Magnify - About Us</title>
+
+  <!-- Google Fonts: DM Sans, Bebas Neue & Didact Gothic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Didact+Gothic&display=block" rel="stylesheet">
+
+  <!-- Unified Website Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="about-page">
+
+    <!-- ============ TOP NAVIGATION BAR ============ -->
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Company Logo" class="logo">
+      </a>
+    </div>
+
+    <nav class="center-nav">
+      <a href="index.html" class="nav-item" data-text="HOME">HOME</a>
+      <a href="services.html" class="nav-item" data-text="SERVICES">SERVICES</a>
+      <a href="casestudy.html" class="nav-item" data-text="OUR WORK">OUR WORK</a>
+      <a href="aboutus.html" class="nav-item active" data-text="ABOUT US">ABOUT US</a>
+      <a href="#contact" class="btn-start">START A PROJECT</a>
+    </nav>
+
+    <div class="right-icons">
+      <a href="javascript:void(0);" class="icon-link"><img src="images/language.png" alt="Language" class="nav-icon"></a>
+      <a href="javascript:void(0);" class="icon-link"><img src="images/search.png" alt="Search" class="nav-icon"></a>
+      <a href="javascript:void(0);" class="icon-link"><img src="images/account.png" alt="Account" class="nav-icon"></a>
+    </div>
+  </header>
+
+
+
+  <!-- 2. ABOUT US INTRO -->
+  <section class="about-hero">
+    <div class="about-title">
+      <span class="subtitle">Team</span>
+      <h1 class="title title-yellow what-we-do-title">ABOUT US</h1>
+      <div class="lime-line"></div>
+    </div>
+    <p class="slide-description">
+      Η Magnify Digital είναι ένα digital marketing agency που βοηθάει επιχειρήσεις και brands να χτίσουν 
+      ξεκάθαρη ταυτότητα και ουσιαστική ψηφιακή παρουσία. Σχεδιάζουμε στρατηγική, branding, 
+      δημιουργία περιεχομένου, social media, web design, διαφημιστικές καμπάνιες σε Google, Meta και TikTok. 
+      Από την πρώτη ιδέα μέχρι την υλοποίηση, δημιουργούμε επικοινωνία με χαρακτήρα, συνέπεια και αποτέλεσμα.
+    </p>
+  </section>
+
+  <!-- 3. SMOOTH SLIDING PHOTOS CAROUSEL -->
+  <section class="photos" id="carouselSection">
+    <div class="carousel-stage">
+      <div class="photo-card" data-index="0">
+        <img src="images/left.jpg" alt="Left photo" />
+      </div>
+      <div class="photo-card" data-index="1">
+        <img src="images/centre.jpg" alt="Centre photo" />
+      </div>
+      <div class="photo-card" data-index="2">
+        <img src="images/right.jpg" alt="Right photo" />
+      </div>
+    </div>
+
+    <div class="pagination-dots" id="carouselDots">
+      <span class="dot" data-slide="0"></span>
+      <span class="dot active" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+    </div>
+  </section>
+
+  <!-- 4. STATEMENT WITH BIIIIG SLOGAN -->
+  <section class="statement-container">
+    <div class="slogan-wrapper">
+      <div class="biiig-slogan">CREATIVE</div>
+      <h2 class="title title-yellow slogan-overlay-title">WE MAKE BRANDS IMPOSSIBLE TO IGNORE.</h2>
+    </div>
+    <p class="slogan-subtitle">We combine strategy, creativity and media to help brands connect with their audiences.</p>
+  </section>
+
+  <!-- 5. WHAT WE DO (EXPANDING SERVICE PILL PYRAMID) -->
+  <section class="about-services">
+    <span class="subtitle">Services</span>
+    <h2 class="title title-yellow what-we-do-title">WHAT WE DO</h2>
+
+    <div class="pyramid-container">
+      
+      <!-- Row 1: 1 Icon -->
+      <div class="icon-row">
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>DIGITAL STRATEGY</h3>
+            <p>Στρατηγική ανάπτυξης και στόχευση κοινού.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: 3 Icons -->
+      <div class="icon-row">
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>SOCIAL MEDIA</h3>
+            <p>Πλάνο, δημιουργικά και διαχείριση social media</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"></path>
+              <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>CONTENT & VIDEO</h3>
+            <p>Video production, editing και γραφικά.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+          </div>
+        </div>
+
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>WEB DESIGN</h3>
+            <p>Σύγχρονες, λειτουργικές ιστοσελίδες υψηλής απόδοσης.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3: 4 Icons -->
+      <div class="icon-row">
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>GOOGLE ADS</h3>
+            <p>Στοχευμένες καμπάνιες αναζήτησης για άμεσα αποτελέσματα.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+        </div>
+
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>META ADS</h3>
+            <p>Διαφημίσεις σε Facebook και Instagram.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <img src="images/meta-ads-icon.png" alt="Meta Ads" class="target-icon" />
+          </div>
+        </div>
+
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>TIKTOK ADS</h3>
+            <p>Δυναμικές βίντεο-καμπάνιες στο TikTok.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+        </div>
+
+        <div class="service-pill">
+          <div class="pill-content">
+            <h3>BRANDING</h3>
+            <p>Χτίζουμε ξεκάθαρη οπτική ταυτότητα που ξεχωρίζει.</p>
+          </div>
+          <div class="pill-icon-wrap">
+            <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+              <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+              <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+              <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. CHALLENGE CTA BANNER -->
+  <section class="challenge-cta-card" id="contact">
+    <h2 class="title title-white challenge-title">
+      HAVE A CHALLENGE?<br>
+      LETS TURN IT<br>
+      INTO GROWTH.
+    </h2>
+    <a href="javascript:void(0);" class="btn-start">START A PROJECT</a>
+  </section>
+
+  <!-- 7. WEBSITE FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- Column 1: Services -->
+      <div class="footer-col">
+        <h3 class="col-heading">SERVICES</h3>
+        <ul class="footer-links">
+          <li><a href="services.html#service-1">Digital Strategy</a></li>
+          <li><a href="services.html#service-2">Social Media Management</a></li>
+          <li><a href="services.html#service-3">Content Creation & Video Production</a></li>
+          <li><a href="services.html#service-4">Website Design & Development</a></li>
+          <li><a href="services.html#service-5">Google Ads</a></li>
+          <li><a href="services.html#service-6">Meta Ads</a></li>
+          <li><a href="services.html#service-7">TikTok Ads</a></li>
+          <li><a href="services.html#service-8">Branding</a></li>
+          <li><a href="services.html">All Services</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: Our Work & About Us -->
+      <div class="footer-col">
+        <div class="sub-section">
+          <h3 class="col-heading">OUR WORK</h3>
+          <ul class="footer-links">
+            <li><a href="casestudy.html">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="sub-section">
+          <h3 class="col-heading">ABOUT US</h3>
+          <ul class="footer-links">
+            <li><a href="aboutus.html">Team</a></li>
+            <li><a href="aboutus.html">How We Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Column 3: Contact & Socials -->
+      <div class="footer-col">
+        <h3 class="col-heading">CONTACT</h3>
+        <p class="contact-email">
+          <a href="mailto:magdigi@gmail.com">magdigi@gmail.com</a>
+        </p>
+
+        <div class="social-icons">
+          <a href="javascript:void(0);" class="icon-link" aria-label="Instagram">
+            <img src="images/instagram.png" alt="Instagram" class="social-img" />
+          </a>
+
+          <a href="mailto:magdigi@gmail.com" class="icon-link" aria-label="Email">
+            <img src="images/mail.png" alt="Email" class="social-img" />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts: Zoom Lock + Smooth GPU Sliding Carousel -->
+  <script>
+    // Block trackpad/keyboard zooming
+    document.addEventListener('wheel', function(event) {
+      if (event.ctrlKey || event.metaKey) event.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('keydown', function(event) {
+      if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '=')) {
+        event.preventDefault();
+      }
+    });
+
+    // Smooth GPU-Accelerated Carousel
+    const cards = Array.from(document.querySelectorAll('.photo-card'));
+    const dots = Array.from(document.querySelectorAll('.pagination-dots .dot'));
+    const carouselSection = document.getElementById('carouselSection');
+    let activeIndex = 1; // Start with centre.jpg in the middle
+
+    function renderCarousel() {
+      const total = cards.length;
+      cards.forEach((card, i) => {
+        card.classList.remove('pos-center', 'pos-left', 'pos-right');
+
+        if (i === activeIndex) {
+          card.classList.add('pos-center');
+        } else if (i === (activeIndex - 1 + total) % total) {
+          card.classList.add('pos-left');
+        } else {
+          card.classList.add('pos-right');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      activeIndex = (index + cards.length) % cards.length;
+      renderCarousel();
+    }
+
+    renderCarousel();
+
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        if (index !== activeIndex) {
+          goToSlide(index);
+          resetTimer();
+        }
+      });
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetTimer();
+      });
+    });
+
+    let autoTimer = setInterval(() => goToSlide(activeIndex + 1), 4500);
+
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goToSlide(activeIndex + 1), 4500);
+    }
+
+    carouselSection.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    carouselSection.addEventListener('mouseleave', () => resetTimer());
+  </script>
+
+</body>
+</html>
